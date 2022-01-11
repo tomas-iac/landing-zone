@@ -19,7 +19,7 @@ module "subscriptions" {
   for_each        = fileset(path.module, "subscriptions/*.yaml")
   prefix          = var.prefix
   name            = yamldecode(file(each.value)).name
-  vnetRange       = "10.0.0.0/16"
+  vnetRange       = yamldecode(file(each.value)).vnetRange
   vwanHubId       = module.sharedEnvironment.vwanHubId
   vwanRouteId     = module.sharedEnvironment.vwanRouteId
   tags            = yamldecode(file(each.value)).tags
