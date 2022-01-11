@@ -1,0 +1,12 @@
+name: sub02
+vnetRange: "10.1.0.0/16"
+fwPriority: 101
+tags:
+  costLocation: IS234543
+  businessUnit: Marketing
+  environment: PROD
+owners:
+- tokubica@microsoft.com
+outboundFqdns:
+- name: microsoft
+  fqdns: ["microsoft.com", "www.microsoft.com"]

@@ -1,0 +1,15 @@
+name: sub01
+vnetRange: "10.0.0.0/16"
+fwPriority: 100
+tags:
+  costLocation: C543254
+  businessUnit: Finance
+  environment: PROD
+owners:
+- tokubica@microsoft.com
+- tkubica12_gmail.com#EXT#@microsoft.onmicrosoft.com
+outboundFqdns:
+- name: microsoft
+  fqdns: ["microsoft.com", "www.microsoft.com"]
+- name: terraform
+  fqdns: ["*.terraform.com"]
