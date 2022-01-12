@@ -24,7 +24,10 @@ jobs:
       uses: hashicorp/setup-terraform@v1
 
     - name: Go to project folder
-      run: cd ./terraform
+      run: |
+        ls
+        cd ./terraform
+        ls
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
