@@ -42,3 +42,11 @@ variable "tags" {
 variable "owners" {
   type = list(string)
 }
+
+variable "privateDnsRgName" {
+  type = string
+}
+
+variable "privateDnsSet" {
+  type = set(string)
+}

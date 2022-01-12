@@ -17,3 +17,11 @@ output "bastionVnetId" {
 output "bastionRgName" {
   value = azurerm_resource_group.sharedRg.name
 }
+
+output "privateDnsRgName" {
+  value = azurerm_resource_group.dnsRg.name
+}
+
+output "privateDnsSet" {
+  value = local.privatezones
+}
