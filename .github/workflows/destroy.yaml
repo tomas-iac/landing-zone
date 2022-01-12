@@ -15,24 +15,16 @@ jobs:
       ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
 
     steps:
-    # Checkout the repository to the GitHub Actions runner
     - name: Checkout
       uses: actions/checkout@v2
 
-    # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
 
-    - name: Go to project folder
-      run: |
-        cd ./terraform
-        ls -lah
-
-    # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
-      run: |
-        pwd
-        terraform init
+      working-directory: ./terraform
+      run: terraform init
 
     - name: Terraform Destroy
+      working-directory: ./terraform
       run: terraform destroy -auto-approve
