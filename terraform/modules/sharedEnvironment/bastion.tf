@@ -25,7 +25,7 @@ resource "azurerm_bastion_host" "bastion" {
   name                = "bastion"
   location            = azurerm_resource_group.sharedRg.location
   resource_group_name = azurerm_resource_group.sharedRg.name
-
+  sku                 = "Standard"
   ip_configuration {
     name                 = "configuration"
     subnet_id            = "${azurerm_virtual_network.bastionVnet.id}/subnets/AzureBastionSubnet"
