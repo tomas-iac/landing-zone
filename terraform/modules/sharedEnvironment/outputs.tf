@@ -25,3 +25,7 @@ output "privateDnsRgName" {
 output "privateDnsSet" {
   value = local.privatezones
 }
+
+output "logAnalyticsWorkspaceId" {
+  value = azurerm_log_analytics_workspace.logs.id
+}
