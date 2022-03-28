@@ -9,6 +9,7 @@ locals {
     "privatelink.mysql.database.azure.com",
     "privatelink.azurecr.io",
     "privatelink.westeurope.azmk8s.io",
+    "privatelink.northeurope.azmk8s.io",
     "privatelink.monitor.azure.com",
     "privatelink.oms.opinsights.azure.com",
     "privatelink.ods.opinsights.azure.com",
