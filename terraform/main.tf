@@ -5,7 +5,7 @@ variable "prefix" {
 
 variable "location" {
   type    = string
-  default = "northeurope"
+  default = "eastus2"
 }
 
 module "sharedEnvironment" {
