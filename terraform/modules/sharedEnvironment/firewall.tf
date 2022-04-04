@@ -11,9 +11,8 @@ resource "azurerm_firewall" "vwan" {
   resource_group_name = azurerm_resource_group.vwanRg.name
   sku_name            = "AZFW_Hub"
   sku_tier            = "Premium"
-  threat_intel_mode   = ""
   firewall_policy_id  = azurerm_firewall_policy.vwan.id
-
+  
   virtual_hub {
     virtual_hub_id  = azurerm_virtual_hub.vwan.id
     public_ip_count = 1

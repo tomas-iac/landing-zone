@@ -1,7 +1,7 @@
 // DENY: creation of Public IP
-resource "azurerm_policy_assignment" "denyResources" {
+resource "azurerm_resource_group_policy_assignment" "denyResources" {
   name                 = "denyResources"
-  scope                = azurerm_resource_group.envRg.id
+  resource_group_id    = azurerm_resource_group.envRg.id
   policy_definition_id = "/providers/Microsoft.Authorization/policyDefinitions/6c112d4e-5bc7-47ae-a041-ea2d9dccd749"
   description          = "Not allowed resource types"
   display_name         = "denyResources"
@@ -20,9 +20,9 @@ PARAMETERS
 }
 
 // AUDIT: Virtual machines should be protected with network security groups
-resource "azurerm_policy_assignment" "audisNsg" {
+resource "azurerm_resource_group_policy_assignment" "audisNsg" {
   name                 = "audisNsg"
-  scope                = azurerm_resource_group.envRg.id
+  resource_group_id    = azurerm_resource_group.envRg.id
   policy_definition_id = "/providers/Microsoft.Authorization/policyDefinitions/bb91dfba-c30d-4263-9add-9c2384e659a6"
   description          = "Virtual machines should be protected with network security groups"
   display_name         = "audisNsg"
@@ -83,9 +83,9 @@ PARAMETERS
 
 }
 
-resource "azurerm_policy_assignment" "denyOtherVnets" {
+resource "azurerm_resource_group_policy_assignment" "denyOtherVnets" {
   name                 = "denyOtherVnets"
-  scope                = azurerm_resource_group.envRg.id
+  resource_group_id    = azurerm_resource_group.envRg.id
   policy_definition_id = azurerm_policy_definition.denyOtherVnets.id
   description          = "Only VNET ResourceID that can be created/updated must the one deployed by IT, all others are denied"
   display_name         = "denyOtherVnets"
