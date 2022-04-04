@@ -31,7 +31,7 @@ resource "azurerm_resource_group_policy_assignment" "audisNsg" {
 
 // DENY: Only VNET ResourceID that can be created/updated must be the one deployed by this template, all others are denied
 resource "azurerm_policy_definition" "denyOtherVnets" {
-  name         = "denyOtherVnets"
+  name         = "denyOtherVnets-${var.prefix}-${var.name}"
   policy_type  = "Custom"
   mode         = "All"
   display_name = "denyOtherVnets"
