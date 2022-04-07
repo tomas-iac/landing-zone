@@ -65,3 +65,12 @@ resource "azurerm_private_dns_zone" "privaendpoints" {
   name                = each.key
   resource_group_name = azurerm_resource_group.dnsRg.name
 }
+
+// Link to shared VNET
+resource "azurerm_private_dns_zone_virtual_network_link" "example" {
+  for_each              = local.privatezones
+  name                  = each.key
+  resource_group_name   = azurerm_resource_group.dnsRg.name
+  private_dns_zone_name = each.key
+  virtual_network_id    = azurerm_virtual_network.sharedVnet.id
+}

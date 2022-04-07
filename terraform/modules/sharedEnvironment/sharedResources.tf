@@ -38,3 +38,18 @@ resource "azurerm_virtual_hub_connection" "sharedVnet" {
     associated_route_table_id = azurerm_virtual_hub_route_table.vwan.id
   }
 }
+
+// Peering to and from Bastion
+resource "azurerm_virtual_network_peering" "env-bastion" {
+  name                      = "shared-bastion"
+  resource_group_name       = azurerm_resource_group.sharedRg.name
+  virtual_network_name      = azurerm_virtual_network.sharedVnet.name
+  remote_virtual_network_id = azurerm_virtual_network.bastionVnet.id
+}
+
+resource "azurerm_virtual_network_peering" "bastion-env" {
+  name                      = "bastion-shared"
+  resource_group_name       = azurerm_resource_group.sharedRg.name
+  virtual_network_name      = azurerm_virtual_network.bastionVnet.name
+  remote_virtual_network_id = azurerm_virtual_network.sharedVnet.id
+}
