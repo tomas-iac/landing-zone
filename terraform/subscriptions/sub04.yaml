@@ -1,0 +1,12 @@
+name: sub04
+vnetRange: "10.3.0.0/16"
+fwPriority: 103
+tags:
+  costLocation: BLABLA123456
+  businessUnit: Marketing
+  environment: TEST
+owners:
+- tokubica@microsoft.com
+outboundFqdns:
+- name: microsoft
+  fqdns: ["microsoft.com", "www.microsoft.com"]
